@@ -1,0 +1,56 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    name: ${{ matrix.os }} - ${{ matrix.compiler }} (${{ matrix.build_type }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-22.04, ubuntu-latest ]
+        compiler: [ gcc, clang ]
+        build_type: [ Release, Debug ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up compiler
+        run: |
+          if [ "${{ matrix.compiler }}" = "gcc" ]; then
+            echo "CC=gcc" >> $GITHUB_ENV
+            echo "CXX=g++" >> $GITHUB_ENV
+          else
+            echo "CC=clang" >> $GITHUB_ENV
+            echo "CXX=clang++" >> $GITHUB_ENV
+          fi
+
+      - name: Verify build environment
+        run: |
+          cmake --version
+          $CXX --version
+
+      - name: Configure CMake
+        run: |
+          cmake -B build \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+            -DBUILD_TESTS=ON \
+            -DENABLE_WERROR=ON
+
+      - name: Compile project
+        run: |
+          cmake --build build --config ${{ matrix.build_type }} -j$(nproc)
+
+      - name: Run CTest test suite
+        run: |
+          ctest --test-dir build --output-on-failure --verbose
+
+      - name: Smoke test CLI snapshot against live Linux /proc
+        run: |
+          ./build/bin/sysmonitor --snapshot

@@ -1,0 +1,12 @@
+Name:	mysqld
+Umask:	0022
+State:	S (sleeping)
+Tgid:	2048
+Ngid:	0
+Pid:	2048
+PPid:	1
+Uid:	1001	1001	1001	1001
+Gid:	1001	1001	1001	1001
+VmSize:	 1048576 kB
+VmRSS:	  524288 kB
+Threads:	32

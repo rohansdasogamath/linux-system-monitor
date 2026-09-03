@@ -1,0 +1,12 @@
+Name:	systemd-journal
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1337
+Ngid:	0
+Pid:	1337
+PPid:	1
+Uid:	0	0	0	0
+Gid:	0	0	0	0
+VmSize:	   44544 kB
+VmRSS:	    5000 kB
+Threads:	1
