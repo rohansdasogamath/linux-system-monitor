@@ -72,12 +72,14 @@ linux-system-monitor/
 │       └── ci.yml             # Matrix CI testing on Ubuntu (GCC & Clang)
 ├── .gitignore                 # Standard CMake and build artifacts ignore
 ├── CMakeLists.txt             # Root CMake configuration (enforces C++17)
+├── LICENSE                    # MIT License
 ├── README.md                  # Technical architecture and documentation
 ├── scripts/
 │   └── build.sh               # Shell automation script for builds and tests
 ├── include/
 │   └── sysmonitor/
 │       ├── Types.hpp          # Domain structs (CpuSnapshot, MemoryInfo, etc.)
+│       ├── Compat.hpp         # Cross-platform compiler compatibility shims
 │       ├── ProcParser.hpp     # Procfs file reading & tokenization
 │       ├── CpuMonitor.hpp     # CPU time-delta calculations
 │       ├── MemoryMonitor.hpp  # Memory usage parser
@@ -86,6 +88,7 @@ linux-system-monitor/
 │       └── SystemMonitor.hpp  # Unified system coordinator
 ├── src/
 │   ├── CMakeLists.txt         # Library and binary targets
+│   ├── Compat.cpp
 │   ├── ProcParser.cpp
 │   ├── CpuMonitor.cpp
 │   ├── MemoryMonitor.cpp
