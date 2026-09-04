@@ -4,7 +4,6 @@
 #include "sysmonitor/ProcParser.hpp"
 #include <memory>
 #include <unordered_map>
-#include <chrono>
 
 namespace sysmonitor {
 
@@ -44,8 +43,6 @@ private:
 
     // History map for delta calculations (keyed by CPU name e.g. "cpu", "cpu0")
     std::unordered_map<std::string, CpuTimes> prev_cpu_times_{};
-    bool has_previous_sample_{false};
-    std::chrono::steady_clock::time_point last_sample_time_{};
 };
 
 } // namespace sysmonitor

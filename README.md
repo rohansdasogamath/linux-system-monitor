@@ -1,6 +1,6 @@
 # Linux System Monitor
 
-![CI Pipeline](https://github.com/your-username/linux-system-monitor/actions/workflows/ci.yml/badge.svg)
+![CI Pipeline](https://github.com/rohandsdasogamath/Linux-System-Monitor/actions/workflows/ci.yml/badge.svg)
 ![C++ Standard](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
 ![Build](https://img.shields.io/badge/Build-CMake%203.16+-brightgreen.svg)
 ![Platform](https://img.shields.io/badge/Platform-Linux%20Ubuntu-orange.svg)
@@ -8,7 +8,7 @@
 
 A modular, high-performance Linux System Monitor written in modern **C++17** targeting **Linux Ubuntu**. This project interfaces directly with Linux virtual filesystems (`/proc` and `/sys`) to monitor CPU, memory, disk, and active process telemetry without third-party dependencies.
 
-Designed with production-grade engineering principles: **dependency injection for testability**, **RAII resource management**, **zero-copy parsing with `std::string_view`**, **strict compiler warnings**, and **automated CTest test suites on GitHub Actions CI**.
+Designed with production-grade engineering principles: **dependency injection for testability**, **RAII resource management**, **modular procfs parsing**, **strict compiler warnings**, and **automated CTest test suites on GitHub Actions CI**.
 
 ---
 
@@ -127,8 +127,8 @@ linux-system-monitor/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/linux-system-monitor.git
-cd linux-system-monitor
+git clone https://github.com/rohandsdasogamath/Linux-System-Monitor.git
+cd Linux-System-Monitor
 
 # 2. Configure with CMake
 cmake -B build -DCMAKE_BUILD_TYPE=Release

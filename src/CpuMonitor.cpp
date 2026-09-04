@@ -92,8 +92,6 @@ void CpuMonitor::update() {
     }
 
     per_core_cpu_ = std::move(new_per_core);
-    has_previous_sample_ = true;
-    last_sample_time_ = std::chrono::steady_clock::now();
 }
 
 CpuSnapshot CpuMonitor::get_aggregate_cpu() const {

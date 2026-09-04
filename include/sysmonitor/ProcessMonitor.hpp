@@ -5,7 +5,6 @@
 #include <memory>
 #include <vector>
 #include <unordered_map>
-#include <chrono>
 
 namespace sysmonitor {
 
@@ -64,7 +63,6 @@ private:
     // Tracking ticks between samples for CPU calculation (keyed by PID)
     struct ProcessPrevState {
         uint64_t total_ticks{0};
-        std::chrono::steady_clock::time_point sample_time;
     };
     std::unordered_map<int, ProcessPrevState> prev_process_ticks_{};
 };

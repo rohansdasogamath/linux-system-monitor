@@ -12,8 +12,8 @@ using namespace sysmonitor;
 
 static std::atomic<bool> g_running{true};
 
-void signal_handler(int signal) {
-    if (signal == SIGINT || signal == SIGTERM) {
+void signal_handler(int sig) {
+    if (sig == SIGINT || sig == SIGTERM) {
         g_running = false;
     }
 }
@@ -29,7 +29,6 @@ namespace color {
     constexpr const char* BLUE    = "\033[34m";
     constexpr const char* MAGENTA = "\033[35m";
     constexpr const char* CYAN    = "\033[36m";
-    constexpr const char* WHITE   = "\033[37m";
     constexpr const char* CLEAR_SCREEN = "\033[2J\033[H";
 }
 

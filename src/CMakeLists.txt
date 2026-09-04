@@ -17,11 +17,10 @@ target_include_directories(sysmonitor_core
 
 target_compile_features(sysmonitor_core PUBLIC cxx_std_17)
 
+# Threads support for timing and sleep operations
+find_package(Threads REQUIRED)
+target_link_libraries(sysmonitor_core PUBLIC Threads::Threads)
+
 # CLI application
 add_executable(sysmonitor main.cpp)
 target_link_libraries(sysmonitor PRIVATE sysmonitor_core)
-
-# Threads support for timing and sleep operations
-find_package(Threads REQUIRED)
-target_link_libraries(sysmonitor PRIVATE Threads::Threads)
-target_link_libraries(sysmonitor_core PRIVATE Threads::Threads)

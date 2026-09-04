@@ -92,7 +92,6 @@ std::string ProcessMonitor::uid_to_username(uint32_t uid) {
 
 void ProcessMonitor::update(uint64_t total_memory_bytes, uint64_t system_cpu_delta_ticks) {
     std::vector<ProcessInfo> new_processes;
-    const auto now = std::chrono::steady_clock::now();
 
     // Discover numeric PID directories in /proc
     const auto dirs = parser_->list_subdirectories("");
@@ -177,7 +176,7 @@ void ProcessMonitor::update(uint64_t total_memory_bytes, uint64_t system_cpu_del
             }
         }
 
-        prev_process_ticks_[proc.pid] = ProcessPrevState{current_ticks, now};
+        prev_process_ticks_[proc.pid] = ProcessPrevState{current_ticks};
         new_processes.push_back(proc);
     }
 

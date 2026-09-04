@@ -10,14 +10,14 @@
   namespace sysmonitor {
       template <typename T>
       using optional = std::optional<T>;
-      constexpr auto nullopt = std::nullopt;
+      using std::nullopt;
   }
 #elif defined(__has_include) && __has_include(<experimental/optional>)
   #include <experimental/optional>
   namespace sysmonitor {
       template <typename T>
       using optional = std::experimental::optional<T>;
-      constexpr auto nullopt = std::experimental::nullopt;
+      using std::experimental::nullopt;
   }
 #else
   #error "A compiler supporting std::optional or std::experimental::optional is required."

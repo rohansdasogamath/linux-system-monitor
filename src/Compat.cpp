@@ -43,11 +43,11 @@ StorageSpace query_storage_space(const std::string& path) {
 namespace sysmonitor {
 StorageSpace query_storage_space(const std::string& path) {
     StorageSpace s{};
-    struct statvfs stat{};
-    if (statvfs(path.c_str(), &stat) == 0) {
-        s.capacity = static_cast<uint64_t>(stat.f_blocks) * stat.f_frsize;
-        s.free = static_cast<uint64_t>(stat.f_bfree) * stat.f_frsize;
-        s.available = static_cast<uint64_t>(stat.f_bavail) * stat.f_frsize;
+    struct statvfs vfs_buf{};
+    if (statvfs(path.c_str(), &vfs_buf) == 0) {
+        s.capacity = static_cast<uint64_t>(vfs_buf.f_blocks) * vfs_buf.f_frsize;
+        s.free = static_cast<uint64_t>(vfs_buf.f_bfree) * vfs_buf.f_frsize;
+        s.available = static_cast<uint64_t>(vfs_buf.f_bavail) * vfs_buf.f_frsize;
     }
     return s;
 }

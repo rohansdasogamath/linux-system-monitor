@@ -139,7 +139,7 @@ struct SystemSnapshot {
  */
 inline std::string format_bytes(uint64_t bytes) {
     constexpr const char* units[] = {"B", "KB", "MB", "GB", "TB"};
-    int unit_idx = 0;
+    size_t unit_idx = 0;
     double count = static_cast<double>(bytes);
 
     while (count >= 1024.0 && unit_idx < 4) {
