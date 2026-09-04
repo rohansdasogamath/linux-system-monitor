@@ -1,6 +1,6 @@
 # Linux System Monitor
 
-![CI Pipeline](https://github.com/rohandsdasogamath/Linux-System-Monitor/actions/workflows/ci.yml/badge.svg)
+[![CI Pipeline](https://github.com/rohansdasogamath/Linux-System-Monitor/actions/workflows/ci.yml/badge.svg)](https://github.com/rohansdasogamath/Linux-System-Monitor/actions/workflows/ci.yml)
 ![C++ Standard](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
 ![Build](https://img.shields.io/badge/Build-CMake%203.16+-brightgreen.svg)
 ![Platform](https://img.shields.io/badge/Platform-Linux%20Ubuntu-orange.svg)
