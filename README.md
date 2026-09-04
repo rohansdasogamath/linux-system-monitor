@@ -116,6 +116,10 @@ linux-system-monitor/
 
 ---
 
+## Example Output
+
+![Linux System Monitor](screenshots/system-monitor-output.png)
+
 ## Building and Running
 
 ### Prerequisites
